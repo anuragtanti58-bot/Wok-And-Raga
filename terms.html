@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Terms of Dining | Wok &amp; Raga Restro • Diphu, Assam</title>
+  <meta name="description" content="Terms of Dining, reservation guidelines, and hospitality policies for Wok &amp; Raga Restro in Diphu, Assam." />
+
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS & Configuration -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#38393c",
+            "on-secondary-fixed": "#281900",
+            "primary-fixed-dim": "#ffb4a1",
+            "surface-container-highest": "#343538",
+            "outline": "#a88a83",
+            "tertiary-fixed-dim": "#b9cbb9",
+            "on-tertiary-fixed-variant": "#3b4b3d",
+            "primary-fixed": "#ffdbd1",
+            "on-tertiary-fixed": "#101f13",
+            "surface-variant": "#343538",
+            "on-surface-variant": "#e1bfb7",
+            "on-secondary-container": "#3a2600",
+            "inverse-surface": "#e3e2e6",
+            "primary-container": "#f1643e",
+            "surface-dim": "#121316",
+            "on-secondary-fixed-variant": "#604100",
+            "on-surface": "#e3e2e6",
+            "error-container": "#93000a",
+            "inverse-primary": "#ac3311",
+            "tertiary-container": "#849585",
+            "error": "#ffb4ab",
+            "on-secondary": "#432c00",
+            "on-background": "#e3e2e6",
+            "surface-container-lowest": "#0d0e11",
+            "surface-container-high": "#292a2d",
+            "on-error": "#690005",
+            "on-tertiary": "#253427",
+            "secondary-container": "#bd8718",
+            "on-primary-container": "#550f00",
+            "tertiary-fixed": "#d5e7d4",
+            "on-tertiary-container": "#1e2d21",
+            "on-primary": "#611300",
+            "outline-variant": "#59413b",
+            "tertiary": "#b9cbb9",
+            "on-primary-fixed-variant": "#881f00",
+            "on-primary-fixed": "#3c0800",
+            "surface-tint": "#ffb4a1",
+            "secondary-fixed-dim": "#fabc4d",
+            "secondary-fixed": "#ffdead",
+            "surface-container": "#1f1f23",
+            "surface": "#121316",
+            "on-error-container": "#ffdad6",
+            "primary": "#ffb4a1",
+            "inverse-on-surface": "#2f3034",
+            "surface-container-low": "#1b1b1f",
+            "secondary": "#fabc4d",
+            "background": "#121316"
+          },
+          fontFamily: {
+            "display-hero": ["Playfair Display"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Playfair Display"],
+            "label-caps": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Playfair Display"],
+            "headline-md": ["Playfair Display"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="./src/styles/main.css" />
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container antialiased flex flex-col min-h-screen">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-surface-dim/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.4)] border-b border-outline-variant/15" id="main-header">
+    <div class="h-20 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between" id="nav-inner">
+      <div class="flex items-center gap-3">
+        <a class="flex items-center gap-2 group" href="./index.html">
+          <div class="w-9 h-9 rounded-full bg-secondary/30 flex items-center justify-center p-[1px]">
+            <div class="w-full h-full rounded-full bg-surface-container-low flex items-center justify-center">
+              <span class="material-symbols-outlined text-secondary text-[20px]">local_fire_department</span>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-headline-sm text-[16px] tracking-tight text-on-surface group-hover:text-primary transition-colors leading-tight">Wok &amp; Raga</span>
+            <span class="font-label-caps text-[9px] uppercase text-secondary tracking-[0.18em]">Diphu • Assam</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6">
+        <a class="font-label-md text-xs tracking-wider uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="./index.html#hero">Home</a>
+        <a class="font-label-md text-xs tracking-wider uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="./menu.html">Menu</a>
+        <a class="font-label-md text-xs tracking-wider uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="./index.html#reserve">Reservations</a>
+        <a class="font-label-md text-xs tracking-wider uppercase text-on-surface-variant hover:text-on-surface transition-colors" href="./index.html#location">Location</a>
+      </nav>
+
+      <a class="px-5 py-2 rounded-full bg-primary-container text-on-primary text-xs font-semibold tracking-wider uppercase shadow-md hover:bg-[#e65c00] transition-all" href="./index.html#reserve">
+        Reserve a Table
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-[860px] mx-auto px-4 sm:px-6 pt-32 pb-16">
+    <div class="flex flex-col gap-6">
+      
+      <div>
+        <span class="font-label-caps text-xs uppercase text-secondary tracking-widest block mb-1">Guest Guidelines &amp; Policies</span>
+        <h1 class="font-headline-lg text-[32px] sm:text-[40px] text-on-surface font-display-hero">Terms of Dining</h1>
+        <p class="text-xs text-on-surface-variant mt-1">Last Updated: October 2026</p>
+      </div>
+
+      <div class="p-5 rounded-xl bg-surface-container border border-secondary/25 text-sm text-on-surface-variant spotlight-card" data-spotlight="gold">
+        <strong class="text-secondary block mb-1">Welcome to Wok &amp; Raga Restro:</strong>
+        Our guidelines are designed to ensure an exceptional, respectful, and safe dining experience for every guest in Diphu.
+      </div>
+
+      <div class="space-y-6 text-on-surface-variant text-sm leading-relaxed">
+        <section class="space-y-2">
+          <h2 class="font-headline-sm text-lg text-on-surface font-display-hero">1. Table Reservations &amp; Confirmations</h2>
+          <p>
+            Reservation requests sent through our website are submitted via WhatsApp and manually confirmed by our maître d'. Reservations are held for up to 15 minutes past the scheduled time before being released during peak dining hours.
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="font-headline-sm text-lg text-on-surface font-display-hero">2. Dine-In &amp; Food Preparation</h2>
+          <p>
+            All our signature wok dishes and handmade momos are prepared fresh to order in live high-heat woks. During peak hours, please allow adequate preparation time for artisan dishes.
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="font-headline-sm text-lg text-on-surface font-display-hero">3. Special Dietary &amp; Allergy Inquiries</h2>
+          <p>
+            Guests with specific food allergies or dietary preferences (e.g. Jain, vegetarian, spice tolerance) are warmly invited to notify our service staff when placing their order.
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="font-headline-sm text-lg text-on-surface font-display-hero">4. Private Events &amp; Photography</h2>
+          <p>
+            Guests are welcome to take personal photographs at our signature Sanctuary Pod and rattan seating areas. For private event bookings or acoustic sessions, please contact our desk in advance.
+          </p>
+        </section>
+      </div>
+
+      <div class="pt-6 border-t border-outline-variant/20 flex items-center justify-between">
+        <a href="./index.html" class="inline-flex items-center gap-1 text-secondary text-sm font-semibold hover:underline">
+          <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+          Back to Homepage
+        </a>
+        <a href="./privacy.html" class="text-on-surface-variant hover:text-on-surface text-sm underline">
+          Privacy Policy
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-surface-container-lowest text-on-surface-variant text-xs py-6 border-t border-outline-variant/10 text-center">
+    <p>© 2026 Wok &amp; Raga Restro • Diphu, Karbi Anglong, Assam</p>
+  </footer>
+
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Culinary Menu | Wok &amp; Raga Restro • Diphu, Assam</title>
+  <meta name="description" content="Explore the complete artisan menu of Wok &amp; Raga in Diphu, Assam. Live-fire wok Indo-Chinese, hand-crimped momos, tandoor specials, and refreshing mocktails." />
+  <meta name="keywords" content="Wok and Raga menu, Diphu food menu, Chinese dishes Diphu, Momos price Assam, Tandoori Diphu" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="restaurant.menu" />
+  <meta property="og:title" content="Culinary Menu | Wok &amp; Raga Restro" />
+  <meta property="og:description" content="Handcrafted Indo-Chinese, Momos, Fried Rice, Noodles &amp; Tandoor in Diphu, Assam." />
+  <meta property="og:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuCygUjmGeg5NvnZ4n-FtQS-HlkLKyidt2CrbygJIeGQUJC8TYiRpdbGVMgyaJsuywqmYtOON8eqZWGuVuOjwOb7Uu6Ccw9whIbcv-b4h3AQuvH2bmwJtaKntQeZygxYRxUKrhzkIDPRUn_EuykoesYsq6_Fxs1S7p9gKq0DeinFX0RNmvW7uIv-c4wTSvMh7BkPxCvlIBBzdU-umvrCgzEdtqjXNJA3RR49T92ii1GGcHXoAqiSvvT8DPATKfdjw8f3l2Y" />
+
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS & Configuration -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#38393c",
+            "on-secondary-fixed": "#281900",
+            "primary-fixed-dim": "#ffb4a1",
+            "surface-container-highest": "#343538",
+            "outline": "#a88a83",
+            "tertiary-fixed-dim": "#b9cbb9",
+            "on-tertiary-fixed-variant": "#3b4b3d",
+            "primary-fixed": "#ffdbd1",
+            "on-tertiary-fixed": "#101f13",
+            "surface-variant": "#343538",
+            "on-surface-variant": "#e1bfb7",
+            "on-secondary-container": "#3a2600",
+            "inverse-surface": "#e3e2e6",
+            "primary-container": "#f1643e",
+            "surface-dim": "#121316",
+            "on-secondary-fixed-variant": "#604100",
+            "on-surface": "#e3e2e6",
+            "error-container": "#93000a",
+            "inverse-primary": "#ac3311",
+            "tertiary-container": "#849585",
+            "error": "#ffb4ab",
+            "on-secondary": "#432c00",
+            "on-background": "#e3e2e6",
+            "surface-container-lowest": "#0d0e11",
+            "surface-container-high": "#292a2d",
+            "on-error": "#690005",
+            "on-tertiary": "#253427",
+            "secondary-container": "#bd8718",
+            "on-primary-container": "#550f00",
+            "tertiary-fixed": "#d5e7d4",
+            "on-tertiary-container": "#1e2d21",
+            "on-primary": "#611300",
+            "outline-variant": "#59413b",
+            "tertiary": "#b9cbb9",
+            "on-primary-fixed-variant": "#881f00",
+            "on-primary-fixed": "#3c0800",
+            "surface-tint": "#ffb4a1",
+            "secondary-fixed-dim": "#fabc4d",
+            "secondary-fixed": "#ffdead",
+            "surface-container": "#1f1f23",
+            "surface": "#121316",
+            "on-error-container": "#ffdad6",
+            "primary": "#ffb4a1",
+            "inverse-on-surface": "#2f3034",
+            "surface-container-low": "#1b1b1f",
+            "secondary": "#fabc4d",
+            "background": "#121316"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            gutter: "1.5rem",
+            margin: "3rem",
+            "space-xl": "2.5rem",
+            "gutter-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-2xl": "4rem",
+            "space-lg": "1.5rem"
+          },
+          fontFamily: {
+            "display-hero": ["Playfair Display"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Playfair Display"],
+            "label-caps": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Playfair Display"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Playfair Display"],
+            "headline-lg": ["Playfair Display"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Playfair Display"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="./src/styles/main.css" />
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container antialiased">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-surface-dim/85 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.4)] transition-all duration-300 border-b border-transparent" id="main-header">
+    <div class="h-20 max-w-[1280px] mx-auto px-3 sm:px-margin-mobile lg:px-margin flex items-center justify-between transition-all duration-300" id="nav-inner">
+      <!-- Left: Logo & Branding -->
+      <div class="flex items-center gap-1.5 sm:gap-space-md shrink-0">
+        <a class="flex items-center gap-2 sm:gap-space-sm group" aria-label="Wok &amp; Raga Home" href="./index.html">
+          <div class="relative flex items-center justify-center shrink-0">
+            <div class="w-8 h-8 sm:w-11 sm:h-11 rounded-full p-[1px] bg-secondary/30 flex items-center justify-center transition-transform group-hover:scale-105">
+              <div class="w-full h-full rounded-full bg-surface-container-low flex items-center justify-center">
+                <span class="material-symbols-outlined text-secondary text-[18px] sm:text-[22px]">local_fire_department</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-headline-sm text-[16px] sm:text-headline-sm tracking-tight text-on-surface group-hover:text-primary transition-colors leading-tight">Wok &amp; Raga</span>
+            <span class="font-label-caps text-[9px] sm:text-label-caps uppercase text-secondary tracking-[0.14em] sm:tracking-[0.18em]">Diphu • Assam</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-space-lg" aria-label="Main Navigation">
+        <a class="font-label-md text-label-md tracking-wider uppercase text-on-surface-variant hover:text-on-surface transition-colors py-1" href="./index.html#hero">Home</a>
+        <a class="font-label-md text-label-md tracking-wider uppercase text-on-surface-variant hover:text-on-surface transition-colors py-1" href="./index.html#ambience">Ambience</a>
+        <a class="font-label-md text-label-md tracking-wider uppercase text-on-surface-variant hover:text-on-surface transition-colors py-1" href="./index.html#story">Story</a>
+        <a aria-current="page" class="font-label-md tracking-wider uppercase transition-colors py-1 text-secondary border-b-2 border-secondary" href="./menu.html">Menu</a>
+        <a class="font-label-md text-label-md tracking-wider uppercase text-on-surface-variant hover:text-on-surface transition-colors py-1" href="./index.html#testimonials">Testimonials</a>
+        <a class="font-label-md text-label-md tracking-wider uppercase text-on-surface-variant hover:text-on-surface transition-colors py-1" href="./index.html#location">Location</a>
+      </nav>
+
+      <!-- Desktop Action Bar (Phone, Desktop CTA, Avatar) -->
+      <div class="hidden lg:flex items-center gap-space-md">
+        <a class="flex items-center gap-space-xs px-space-md py-space-sm rounded-full text-secondary hover:bg-secondary/10 transition-colors" data-config-phone="href" href="tel:09101538894" aria-label="Call Wok and Raga">
+          <span class="material-symbols-outlined text-[18px]">call</span>
+          <span class="font-label-md text-label-md font-medium tracking-wide" data-config-phone="text">091015 38894</span>
+        </a>
+        <a class="relative inline-flex items-center justify-center px-space-lg py-2.5 rounded-full bg-primary-container text-on-primary font-title-md text-title-md tracking-wider uppercase shadow-[0_4px_16px_rgba(217,83,47,0.35)] hover:bg-[#e65c00] hover:text-on-primary hover:shadow-[0_6px_22px_rgba(230,92,0,0.5)] transition-all duration-300" href="./index.html#reserve">
+          Reserve a Table
+        </a>
+        <div class="pl-space-xs">
+          <img alt="Wok &amp; Raga Restro Culinary Art" class="w-8 h-8 rounded-full object-cover border border-secondary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCygUjmGeg5NvnZ4n-FtQS-HlkLKyidt2CrbygJIeGQUJC8TYiRpdbGVMgyaJsuywqmYtOON8eqZWGuVuOjwOb7Uu6Ccw9whIbcv-b4h3AQuvH2bmwJtaKntQeZygxYRxUKrhzkIDPRUn_EuykoesYsq6_Fxs1S7p9gKq0DeinFX0RNmvW7uIv-c4wTSvMh7BkPxCvlIBBzdU-umvrCgzEdtqjXNJA3RR49T92ii1GGcHXoAqiSvvT8DPATKfdjw8f3l2Y" />
+        </div>
+      </div>
+
+      <!-- Mobile Right Section (Compact CTA + Crisp Hamburger) -->
+      <div class="flex lg:hidden items-center gap-1.5 sm:gap-2.5">
+        <a class="inline-flex items-center justify-center h-[38px] sm:h-[40px] px-3 sm:px-4 rounded-full bg-[#d9532f] text-white text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase shadow-md active:scale-95 transition-all duration-200 whitespace-nowrap" href="./index.html#reserve">
+          Reserve a Table
+        </a>
+        <button aria-expanded="false" aria-label="Toggle mobile menu" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface hover:text-secondary hover:bg-surface-container active:scale-90 transition-all" id="mobile-menu-toggle" type="button">
+          <span class="material-symbols-outlined text-[24px]" id="menu-icon">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Slide-Down Menu Drawer -->
+    <div class="menu-closed lg:hidden overflow-hidden bg-surface-dim/95 backdrop-blur-xl border-t border-outline-variant/20 px-4 sm:px-6" id="mobile-menu">
+      <nav class="flex flex-col py-4 gap-2" aria-label="Mobile Navigation">
+        <a class="mobile-nav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-on-surface hover:text-secondary hover:bg-surface-container font-label-md tracking-wider uppercase transition-colors" href="./index.html#hero">
+          <span>Home</span>
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+        <a class="mobile-nav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-on-surface hover:text-secondary hover:bg-surface-container font-label-md tracking-wider uppercase transition-colors" href="./index.html#ambience">
+          <span>Ambience</span>
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+        <a class="mobile-nav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-on-surface hover:text-secondary hover:bg-surface-container font-label-md tracking-wider uppercase transition-colors" href="./index.html#story">
+          <span>Story</span>
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+        <a class="mobile-nav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-secondary bg-secondary/10 font-label-md tracking-wider uppercase" href="./menu.html">
+          <span>Full Menu</span>
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+        <a class="mobile-nav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-on-surface hover:text-secondary hover:bg-surface-container font-label-md tracking-wider uppercase transition-colors" href="./index.html#testimonials">
+          <span>Testimonials</span>
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+        <a class="mobile-nav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-on-surface hover:text-secondary hover:bg-surface-container font-label-md tracking-wider uppercase transition-colors" href="./index.html#location">
+          <span>Location &amp; Hours</span>
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+        <div class="pt-3 mt-1 border-t border-outline-variant/15 flex items-center justify-between">
+          <a class="flex items-center gap-2 text-secondary py-2 text-sm font-semibold" data-config-phone="href" href="tel:09101538894">
+            <span class="material-symbols-outlined text-[20px]">call</span>
+            <span data-config-phone="text">091015 38894</span>
+          </a>
+          <span class="text-xs text-on-surface-variant font-label-caps uppercase">Diphu, Assam</span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="w-full pt-20 bg-surface min-h-screen">
+    
+    <!-- MENU HERO HEADER -->
+    <section class="relative w-full bg-surface-container-lowest py-space-xl sm:py-space-2xl border-b border-outline-variant/10 overflow-hidden">
+      <div class="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-primary-container/10 blur-[100px] pointer-events-none"></div>
+      <div class="absolute top-1/2 -right-24 w-96 h-96 rounded-full bg-secondary-container/10 blur-[120px] pointer-events-none"></div>
+      
+      <div class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin relative z-10">
+        <div class="flex flex-col items-center text-center max-w-3xl mx-auto gap-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/10 text-secondary border border-secondary/25">
+            <span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+            <span class="font-label-caps text-label-caps uppercase tracking-[0.18em]">Artisan Culinary Catalog</span>
+          </div>
+          <h1 class="font-display-hero text-[34px] sm:text-[48px] text-on-surface leading-tight">
+            Our Culinary Journey
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant">
+            From smoky live-wok Indo-Chinese and delicate Himalayan momos to charcoal clay tandoor and craft coolers — explore all dishes curated for your palate.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH & FILTER CONTROLS -->
+    <section class="sticky top-20 z-40 bg-surface/95 backdrop-blur-md py-4 border-b border-outline-variant/15 shadow-sm">
+      <div class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin flex flex-col gap-4">
+        
+        <!-- Search & Dietary Bar -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+          
+          <!-- Live Search Input -->
+          <div class="relative w-full md:w-96">
+            <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+            <input 
+              type="search" 
+              id="menu-search" 
+              placeholder="Search dishes, ingredients (e.g. Manchurian, Momos)..." 
+              class="w-full bg-surface-container text-on-surface text-sm pl-10 pr-4 py-2.5 rounded-full border border-outline-variant/30 focus:border-secondary focus:outline-none transition-colors"
+            />
+          </div>
+
+          <!-- Dietary Filter Pills -->
+          <div class="flex items-center gap-2 bg-surface-container-high p-1 rounded-full border border-outline-variant/20 self-stretch sm:self-auto justify-center">
+            <label class="cursor-pointer flex items-center">
+              <input type="radio" name="dietary-filter" value="all" checked class="sr-only peer" />
+              <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-on-surface-variant peer-checked:bg-surface peer-checked:text-secondary peer-checked:shadow-sm transition-all">
+                All
+              </span>
+            </label>
+            <label class="cursor-pointer flex items-center">
+              <input type="radio" name="dietary-filter" value="veg" class="sr-only peer" />
+              <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-on-surface-variant peer-checked:bg-emerald-950 peer-checked:text-emerald-300 peer-checked:shadow-sm transition-all flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Veg
+              </span>
+            </label>
+            <label class="cursor-pointer flex items-center">
+              <input type="radio" name="dietary-filter" value="non-veg" class="sr-only peer" />
+              <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-on-surface-variant peer-checked:bg-rose-950 peer-checked:text-rose-300 peer-checked:shadow-sm transition-all flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span> Non-Veg
+              </span>
+            </label>
+          </div>
+
+          <!-- Item count badge -->
+          <div class="hidden sm:flex items-center gap-2 text-xs text-secondary font-label-caps uppercase tracking-wider">
+            <span class="material-symbols-outlined text-[16px]">menu_book</span>
+            <span id="item-count-badge">Loading items...</span>
+          </div>
+
+        </div>
+
+        <!-- Category Scroll Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none" id="category-tabs">
+          <!-- Dynamic Category Tabs injected via menuPage.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MENU GRID -->
+    <section class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin py-space-xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-space-lg" id="menu-grid">
+        <!-- Dynamic Menu Cards rendered via menuPage.js with SpotlightCard effect -->
+      </div>
+    </section>
+
+    <!-- BANNER: CUSTOM ORDER & RESERVATION CTA -->
+    <section class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin pb-space-2xl">
+      <div class="p-space-lg sm:p-space-xl rounded-2xl bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-high border border-secondary/25 shadow-xl flex flex-col md:flex-row items-center justify-between gap-space-md text-center md:text-left spotlight-card" data-spotlight="gold">
+        <div class="flex flex-col gap-1">
+          <span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Personalized Dining &amp; Parties</span>
+          <h3 class="font-headline-md text-headline-md text-on-surface font-display-hero">Hosting a Special Occasion or Custom Order?</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Connect directly with our culinary team on WhatsApp for banquets, birthday setups, or customized party trays.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+          <a class="px-space-lg py-3 rounded-full bg-primary-container text-on-primary font-title-md text-title-md uppercase tracking-wider hover:bg-[#e65c00] transition-colors shadow-lg flex items-center gap-2" href="./index.html#reserve">
+            <span class="material-symbols-outlined text-[20px]">calendar_today</span>
+            Reserve Table
+          </a>
+          <a class="px-space-lg py-3 rounded-full bg-surface-container-low text-secondary border border-secondary/40 font-title-md text-title-md uppercase tracking-wider hover:bg-secondary/10 transition-colors flex items-center gap-2" href="https://wa.me/919101538894?text=Hello%20Wok%20%26%20Raga!%20I%20would%20like%20to%20inquire%20about%20a%20custom%20party%20or%20catering%20order." target="_blank" rel="noopener noreferrer">
+            <span class="material-symbols-outlined text-[20px]">chat</span>
+            Chat with Chef
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FLOATING WHATSAPP CTA -->
+  <aside class="fixed bottom-6 right-5 sm:right-6 z-50 transition-all duration-700" id="floating-whatsapp">
+    <a aria-label="Chat with Wok &amp; Raga on WhatsApp" class="group relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(0,0,0,0.6),0_0_18px_rgba(37,211,102,0.4)] hover:scale-105 active:scale-95 transition-all duration-300" href="https://wa.me/919101538894?text=Hello%20Wok%20%26%20Raga!%20I%20would%20like%20to%20inquire%20about%20the%20menu%20and%20order%20food." rel="noopener noreferrer" target="_blank">
+      <span class="material-symbols-outlined text-[28px]">chat</span>
+      <span class="absolute right-full mr-3 px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md tracking-normal whitespace-nowrap shadow-xl opacity-0 translate-x-2 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 hidden sm:block">
+        Chat with Wok &amp; Raga
+      </span>
+    </a>
+  </aside>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-surface-container-lowest text-on-surface pt-space-2xl pb-space-xl">
+    <div class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl pb-space-xl">
+        
+        <div class="flex flex-col gap-space-md">
+          <div class="flex flex-col">
+            <span class="font-headline-sm text-headline-sm text-on-surface">Wok &amp; Raga</span>
+            <span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">A Symphony of Flavours</span>
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant pr-4">An editorial confluence of smoky wok-tossed Indo-Chinese gastronomy and the warm, melodic soul of Assam hospitality in the scenic hills of Diphu.</p>
+          <div class="flex items-center gap-space-sm pt-space-xs">
+            <a class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-colors" data-config-maps="href" href="https://maps.google.com/?q=Near+Aturkimi+Academy+Diphu+Karbi+Anglong+Assam" target="_blank" rel="noopener noreferrer" aria-label="Google Maps Location"><span class="material-symbols-outlined text-[18px]">location_on</span></a>
+            <a class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-colors" data-config-phone="href" href="tel:09101538894" aria-label="Call Restaurant"><span class="material-symbols-outlined text-[18px]">call</span></a>
+            <a class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-colors" data-config-whatsapp="href" href="https://wa.me/919101538894" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Contact"><span class="material-symbols-outlined text-[18px]">chat</span></a>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-space-md">
+          <span class="font-title-md text-title-md text-secondary tracking-wide uppercase">Location &amp; Inquiries</span>
+          <div class="flex flex-col gap-space-sm text-on-surface-variant font-body-md text-body-md">
+            <div class="flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-primary text-[20px] shrink-0">location_on</span>
+              <span>Near Aturkimi Academy, Diphu, Karbi Anglong, Assam 782460</span>
+            </div>
+            <div class="flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-primary text-[20px] shrink-0">call</span>
+              <a class="hover:text-on-surface transition-colors" data-config-phone="href" href="tel:09101538894" data-config-phone="text">091015 38894</a>
+            </div>
+            <div class="flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-primary text-[20px] shrink-0">mail</span>
+              <a class="hover:text-on-surface transition-colors" data-config-email="href" href="mailto:dine@wokanadraga.com" data-config-email="text">dine@wokanadraga.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-space-md">
+          <span class="font-title-md text-title-md text-secondary tracking-wide uppercase">Culinary Journey</span>
+          <nav class="flex flex-col gap-space-xs font-body-md text-body-md text-on-surface-variant" aria-label="Footer Menu Links">
+            <a class="hover:text-primary transition-colors" href="./menu.html">Full Culinary Catalog</a>
+            <a class="hover:text-primary transition-colors" href="./index.html#story">Our Story &amp; Philosophy</a>
+            <a class="hover:text-primary transition-colors" href="./index.html#ambience">Artisan Ambience</a>
+            <a class="hover:text-primary transition-colors" href="./index.html#reserve">Private Dining &amp; Banquets</a>
+            <a class="hover:text-primary transition-colors" href="./index.html#testimonials">Guest Testimonials</a>
+          </nav>
+        </div>
+
+        <div class="flex flex-col gap-space-md">
+          <span class="font-title-md text-title-md text-secondary tracking-wide uppercase">Service Hours</span>
+          <div class="flex flex-col gap-space-xs font-body-md text-body-md text-on-surface-variant">
+            <div class="flex justify-between py-1"><span class="text-on-surface">Monday – Sunday</span><span class="text-secondary font-medium">11:00 AM – 10:30 PM</span></div>
+            <div class="flex justify-between py-1"><span class="text-on-surface">Lunch Service</span><span>11:30 AM – 03:30 PM</span></div>
+            <div class="flex justify-between py-1"><span class="text-on-surface">Twilight &amp; Dinner</span><span>06:30 PM – 10:30 PM</span></div>
+            <div class="pt-space-xs"><span class="inline-block px-3 py-1 rounded-full bg-tertiary-container/20 text-tertiary text-xs font-medium uppercase tracking-wider">Dine-in • Takeaway • Events</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm border-t border-outline-variant/15">
+        <p>© 2026 Wok &amp; Raga. All culinary rights reserved. Crafted with pride in Diphu, Assam.</p>
+        <div class="flex items-center gap-space-lg">
+          <a class="hover:text-on-surface transition-colors" href="./privacy.html">Privacy Policy</a>
+          <a class="hover:text-on-surface transition-colors" href="./terms.html">Terms of Dining</a>
+          <a class="hover:text-on-surface transition-colors" data-config-maps="href" href="https://maps.google.com/?q=Near+Aturkimi+Academy+Diphu+Karbi+Anglong+Assam" target="_blank" rel="noopener noreferrer">Directions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="./src/js/main.js"></script>
+  <script type="module" src="./src/js/menuPage.js"></script>
+</body>
+</html>

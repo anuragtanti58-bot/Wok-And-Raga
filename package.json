@@ -1,0 +1,25 @@
+{
+  "name": "wok-and-raga-restro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production website for Wok & Raga Restro - Diphu, Assam",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "^7.0.2",
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwind-merge": "^3.7.0"
+  }
+}
