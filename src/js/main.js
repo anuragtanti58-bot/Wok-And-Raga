@@ -2,8 +2,8 @@
  * Wok & Raga - Main Client Script
  * 
  * Production-ready interactions, validation, WhatsApp generation,
- * scroll animations, dynamic business data binding, and high-performance
- * Spotlight Card pointer tracking.
+ * cinematic scroll-reveal animations optimized for mobile and desktop,
+ * dynamic business data binding, and high-performance Spotlight Card tracking.
  */
 
 import { restaurantConfig } from '../data/restaurantConfig.js';
@@ -220,59 +220,66 @@ function setupNavbarScroll() {
   handleNavScroll();
 }
 
-// Hero entrance animations
+// Hero entrance animations (Sequenced & Non-blocking)
 function setupHeroAnimations() {
-  setTimeout(() => {
+  requestAnimationFrame(() => {
     const heroBadge = document.getElementById('hero-badge');
     const heroTitle = document.getElementById('hero-title');
     const heroDesc = document.getElementById('hero-desc');
     const heroCtas = document.getElementById('hero-ctas');
+    const heroMicroBadges = document.getElementById('hero-micro-badges');
     const heroImage = document.getElementById('hero-image');
     const waButton = document.getElementById('floating-whatsapp');
 
-    if (heroBadge) heroBadge.classList.add('is-revealed');
-    setTimeout(() => { if (heroTitle) heroTitle.classList.add('is-revealed'); }, 120);
-    setTimeout(() => { if (heroDesc) heroDesc.classList.add('is-revealed'); }, 240);
-    setTimeout(() => { if (heroCtas) heroCtas.classList.add('is-revealed'); }, 360);
-    setTimeout(() => { if (heroImage) heroImage.classList.add('is-revealed'); }, 200);
-    setTimeout(() => {
-      if (waButton) {
-        waButton.classList.remove('opacity-0', 'translate-y-6');
-        waButton.classList.add('opacity-100', 'translate-y-0');
-      }
-    }, 600);
-  }, 80);
+    if (heroBadge) setTimeout(() => heroBadge.classList.add('is-revealed'), 40);
+    if (heroTitle) setTimeout(() => heroTitle.classList.add('is-revealed'), 120);
+    if (heroDesc) setTimeout(() => heroDesc.classList.add('is-revealed'), 200);
+    if (heroCtas) setTimeout(() => heroCtas.classList.add('is-revealed'), 280);
+    if (heroMicroBadges) setTimeout(() => heroMicroBadges.classList.add('is-revealed'), 360);
+    if (heroImage) setTimeout(() => heroImage.classList.add('is-revealed'), 220);
+    if (waButton) setTimeout(() => waButton.classList.add('wa-revealed'), 480);
+  });
 }
 
-// Intersection Observer for scroll reveal elements
-function setupScrollReveal() {
-  if ('IntersectionObserver' in window) {
+// Intersection Observer for scroll reveal elements (Mobile & Desktop optimized)
+export function setupScrollReveal() {
+  // Elements outside hero section that should animate into view
+  const revealElements = document.querySelectorAll(
+    'main section:not(#hero) .fade-in-up, ' +
+    'main section:not(#hero) .fade-in-scale, ' +
+    'main section:not(#hero) .spotlight-card, ' +
+    'footer .fade-in-up'
+  );
+
+  if (revealElements.length === 0) return;
+
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -8% 0px',
+      rootMargin: '0px 0px -40px 0px',
       threshold: 0.08
     };
 
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const animatedElements = entry.target.querySelectorAll('.fade-in-up, .fade-in-scale');
-          animatedElements.forEach(el => el.classList.add('is-revealed'));
+          entry.target.classList.add('is-revealed');
           obs.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    document.querySelectorAll('.reveal-section').forEach(sec => observer.observe(sec));
+    revealElements.forEach(el => observer.observe(el));
   } else {
-    document.querySelectorAll('.fade-in-up, .fade-in-scale').forEach(el => el.classList.add('is-revealed'));
+    // Immediate fallback for reduced motion or non-supporting browsers
+    revealElements.forEach(el => el.classList.add('is-revealed'));
   }
 }
 
 /**
  * High-performance Spotlight Card Pointer Tracking
  * 
- * Uses requestAnimationFrame, ignores touch events (to ensure 100% natural mobile scrolling),
+ * Uses requestAnimationFrame, ignores touch events (preserving 100% natural mobile scrolling),
  * and updates CSS custom properties --mouse-x and --mouse-y per card.
  */
 export function initSpotlightCards() {

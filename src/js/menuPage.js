@@ -7,7 +7,7 @@
 
 import { menuCategories, menuItems } from '../data/menuData.js';
 import { generateOrderWhatsAppUrl } from '../utils/whatsapp.js';
-import { initConfigBindings, showToast, initSpotlightCards } from './main.js';
+import { initConfigBindings, showToast, initSpotlightCards, setupScrollReveal } from './main.js';
 
 let currentCategory = 'all';
 let currentSearch = '';
@@ -79,7 +79,7 @@ export function renderMenuItems() {
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <div class="col-span-full py-16 text-center flex flex-col items-center justify-center gap-3 bg-surface-container-low rounded-2xl border border-outline-variant/20">
+      <div class="col-span-full py-16 text-center flex flex-col items-center justify-center gap-3 bg-surface-container-low rounded-2xl border border-outline-variant/20 fade-in-scale is-revealed">
         <span class="material-symbols-outlined text-secondary text-[48px]">search_off</span>
         <h3 class="font-headline-sm text-headline-sm text-on-surface font-display-hero">No Culinary Matches Found</h3>
         <p class="font-body-md text-on-surface-variant max-w-md">Try searching for another dish, resetting your dietary filter, or exploring all categories.</p>
@@ -143,9 +143,10 @@ export function renderMenuItems() {
          </div>`;
 
     const spotlightGlow = idx % 3 === 0 ? 'orange' : idx % 3 === 1 ? 'gold' : 'amber';
+    const staggerClass = `stagger-${(idx % 4) + 1}`;
 
     return `
-      <div class="group flex flex-col rounded-xl overflow-hidden bg-surface-container shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/15 hover:-translate-y-1 spotlight-card" data-spotlight="${spotlightGlow}">
+      <div class="fade-in-up ${staggerClass} group flex flex-col rounded-xl overflow-hidden bg-surface-container shadow-md hover:shadow-xl transition-all duration-300 border border-outline-variant/15 hover:-translate-y-1 spotlight-card" data-spotlight="${spotlightGlow}">
         ${imageHtml}
         <div class="p-space-md flex flex-col justify-between flex-1 gap-space-sm">
           <div>
@@ -197,7 +198,8 @@ export function renderMenuItems() {
     });
   });
 
-  // Re-initialize pointer tracking for newly mounted menu cards
+  // Observe newly rendered cards for scroll reveal & initialize spotlight hover
+  setupScrollReveal();
   initSpotlightCards();
 }
 

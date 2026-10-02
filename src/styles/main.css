@@ -1,6 +1,7 @@
 /* ==========================================================================
    Wok & Raga - Master Stylesheet
    Preserving 100% of the approved visual design, dark aesthetics & typography
+   Enhanced Mobile & Desktop Cinematic Scroll-Reveal & Glow System
    ========================================================================== */
 
 @layer base {
@@ -67,44 +68,72 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Motion & Scroll Reveal Styling */
+/* ==========================================================================
+   CINEMATIC SCROLL REVEAL & MOTION SYSTEM
+   Optimized with GPU transforms and opacity (no layout repaints)
+   ========================================================================== */
+
+/* Standard Upward Fade Reveal */
 .fade-in-up {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(28px);
+  transition: opacity 650ms cubic-bezier(0.22, 1, 0.36, 1), transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+/* Scale & Lift Reveal (Ideal for Cards & Visual compositions) */
+.fade-in-scale {
+  opacity: 0;
+  transform: translateY(22px) scale(0.97);
   transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
-.fade-in-scale {
-  opacity: 0;
-  transform: scale(0.97);
-  transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1), transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+/* Smooth Image Reveal: Starts zoomed 1.06 and settles to 1.0 */
+.img-settle,
+.reveal-img {
+  transform: scale(1.06);
+  opacity: 0.88;
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1), opacity 700ms ease;
+  will-change: transform, opacity;
 }
 
-.img-settle {
-  transform: scale(1.04);
-  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+/* Decorative Heading Accent Line: Expands horizontally from left */
+.reveal-line {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1) 120ms;
+  will-change: transform;
 }
 
-.is-revealed .img-settle {
-  transform: scale(1);
-}
-
+/* Active Revealed States */
 .is-revealed {
   opacity: 1 !important;
   transform: translateY(0) scale(1) !important;
 }
 
-/* Stagger Animation Delays */
+.is-revealed .img-settle,
+.is-revealed .reveal-img,
+.is-revealed.img-settle {
+  transform: scale(1) !important;
+  opacity: 1 !important;
+}
+
+.is-revealed .reveal-line {
+  transform: scaleX(1) !important;
+}
+
+/* Stagger Animation Delays for Natural Flow */
 .stagger-1 { transition-delay: 0ms !important; }
-.stagger-2 { transition-delay: 80ms !important; }
-.stagger-3 { transition-delay: 160ms !important; }
-.stagger-4 { transition-delay: 240ms !important; }
+.stagger-2 { transition-delay: 90ms !important; }
+.stagger-3 { transition-delay: 180ms !important; }
+.stagger-4 { transition-delay: 270ms !important; }
+.stagger-5 { transition-delay: 360ms !important; }
 
 /* ==========================================================================
    SPOTLIGHT / GLOW CARD COMPONENT STYLES
    Warm restaurant palette (Orange, Gold, Amber, Neutral)
+   Enhanced for both Desktop Pointer Hover & Mobile Ambient Glow
    ========================================================================== */
 
 .spotlight-card {
@@ -113,8 +142,8 @@
   overflow: hidden;
   background-color: #1f1f23;
   border: 1px solid rgba(168, 138, 131, 0.15);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  touch-action: pan-y manipulation; /* Allows 100% natural mobile scrolling without interception */
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  touch-action: pan-y manipulation; /* Allows 100% natural mobile vertical scrolling without interception */
 }
 
 /* Dynamic Pointer Spotlight Radial Glow Layer */
@@ -155,9 +184,15 @@
   z-index: 2;
 }
 
-.spotlight-card:hover::before,
-.spotlight-card:hover::after {
-  opacity: 1;
+/* Desktop Hover Pointer States */
+@media (hover: hover) and (pointer: fine) {
+  .spotlight-card:hover::before,
+  .spotlight-card:hover::after {
+    opacity: 1;
+  }
+  .spotlight-card:hover {
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+  }
 }
 
 /* Spotlight Color Presets */
@@ -165,26 +200,37 @@
 .spotlight-card:not([data-spotlight]) {
   --spot-glow: rgba(241, 100, 62, 0.18);
   --border-glow: rgba(241, 100, 62, 0.45);
+  --ambient-border: rgba(241, 100, 62, 0.25);
+  --ambient-glow: rgba(241, 100, 62, 0.12);
 }
 
 .spotlight-card[data-spotlight="gold"] {
   --spot-glow: rgba(250, 188, 77, 0.18);
   --border-glow: rgba(250, 188, 77, 0.45);
+  --ambient-border: rgba(250, 188, 77, 0.25);
+  --ambient-glow: rgba(250, 188, 77, 0.12);
 }
 
 .spotlight-card[data-spotlight="amber"] {
   --spot-glow: rgba(230, 140, 30, 0.18);
   --border-glow: rgba(230, 140, 30, 0.45);
+  --ambient-border: rgba(230, 140, 30, 0.25);
+  --ambient-glow: rgba(230, 140, 30, 0.12);
 }
 
 .spotlight-card[data-spotlight="neutral"] {
   --spot-glow: rgba(255, 255, 255, 0.08);
   --border-glow: rgba(255, 255, 255, 0.22);
+  --ambient-border: rgba(255, 255, 255, 0.14);
+  --ambient-glow: rgba(255, 255, 255, 0.04);
 }
 
-/* Subtle card hover elevation without distortion */
-.spotlight-card:hover {
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+/* Mobile & Touch Subtle Ambient Glow (Activates smoothly on scroll reveal) */
+@media (hover: none), (pointer: coarse) {
+  .spotlight-card.is-revealed {
+    border-color: var(--ambient-border, rgba(250, 188, 77, 0.22));
+    box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.45), 0 0 16px -2px var(--ambient-glow, rgba(241, 100, 62, 0.1));
+  }
 }
 
 /* Content sits comfortably above glow layer */
@@ -193,9 +239,12 @@
   z-index: 3;
 }
 
-/* Mobile Drawer */
+/* ==========================================================================
+   MOBILE NAVIGATION DRAWER & STAGGERED LINKS
+   ========================================================================== */
+
 #mobile-menu {
-  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  transition: max-height 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
 }
 
 #mobile-menu.menu-closed {
@@ -209,6 +258,24 @@
   opacity: 1;
   pointer-events: auto;
 }
+
+.mobile-nav-link {
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease, color 0.2s ease;
+}
+
+#mobile-menu.menu-open .mobile-nav-link {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#mobile-menu.menu-open .mobile-nav-link:nth-child(1) { transition-delay: 40ms; }
+#mobile-menu.menu-open .mobile-nav-link:nth-child(2) { transition-delay: 80ms; }
+#mobile-menu.menu-open .mobile-nav-link:nth-child(3) { transition-delay: 120ms; }
+#mobile-menu.menu-open .mobile-nav-link:nth-child(4) { transition-delay: 160ms; }
+#mobile-menu.menu-open .mobile-nav-link:nth-child(5) { transition-delay: 200ms; }
+#mobile-menu.menu-open .mobile-nav-link:nth-child(6) { transition-delay: 240ms; }
 
 /* Accessible focus visible states */
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
@@ -235,9 +302,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   pointer-events: auto;
 }
 
-/* Reduced Motion Respect */
+/* Floating WhatsApp Entrance */
+#floating-whatsapp {
+  opacity: 0;
+  transform: translateY(24px) scale(0.92);
+  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1), transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+#floating-whatsapp.wa-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY & REDUCED MOTION
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-  .fade-in-up, .fade-in-scale, .img-settle {
+  .fade-in-up,
+  .fade-in-scale,
+  .img-settle,
+  .reveal-img,
+  .reveal-line,
+  .mobile-nav-link,
+  #floating-whatsapp {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
