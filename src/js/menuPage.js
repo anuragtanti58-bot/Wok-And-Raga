@@ -5,6 +5,7 @@
  * dynamic card rendering, Spotlight Card interaction, and WhatsApp dish ordering.
  */
 
+import '../styles/main.css';
 import { menuCategories, menuItems } from '../data/menuData.js';
 import { generateOrderWhatsAppUrl } from '../utils/whatsapp.js';
 import { initConfigBindings, showToast, initSpotlightCards, setupScrollReveal } from './main.js';

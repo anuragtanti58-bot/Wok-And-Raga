@@ -1,7 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ==========================================================================
    Wok & Raga - Master Stylesheet
    Preserving 100% of the approved visual design, dark aesthetics & typography
-   Enhanced Mobile & Desktop Cinematic Scroll-Reveal & Glow System
+   Pre-compiled Static Production CSS with Build-Time Tailwind & Defensive Motion
    ========================================================================== */
 
 @layer base {
@@ -29,8 +33,7 @@
     overflow-x: clip;
     background-color: #121316;
     color: #e3e2e6;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    /* Do NOT set overscroll-behavior: none to allow natural mouse and touch gestures */
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   }
 
   main > :first-child {
@@ -61,45 +64,61 @@
 
 /* Typography Helpers */
 .font-display-hero, .font-headline-lg, .font-headline-md, .font-headline-sm {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
 }
 
 .font-body-lg, .font-body-md, .font-body-sm, .font-title-lg, .font-title-md, .font-label-caps, .font-label-md {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* ==========================================================================
-   CINEMATIC SCROLL REVEAL & MOTION SYSTEM
-   Optimized with GPU transforms and opacity (no layout repaints)
+   PROGRESSIVE ENHANCEMENT & DEFENSIVE MOTION SYSTEM
+   Content is 100% visible by default; animations activate only when JS initializes.
+   Zero FOUC, zero blank screens on slow network loading!
    ========================================================================== */
 
-/* Standard Upward Fade Reveal */
-.fade-in-up {
+/* Standard initial visible fallback */
+.fade-in-up,
+.fade-in-scale {
+  opacity: 1;
+  transform: none;
+}
+
+.img-settle,
+.reveal-img {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.reveal-line {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* When JavaScript is ready, activate smooth GPU entrance animations */
+html.motion-ready .fade-in-up {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 650ms cubic-bezier(0.22, 1, 0.36, 1), transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
-/* Scale & Lift Reveal (Ideal for Cards & Visual compositions) */
-.fade-in-scale {
+html.motion-ready .fade-in-scale {
   opacity: 0;
   transform: translateY(22px) scale(0.97);
   transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
-/* Smooth Image Reveal: Starts zoomed 1.06 and settles to 1.0 */
-.img-settle,
-.reveal-img {
+html.motion-ready .img-settle,
+html.motion-ready .reveal-img {
   transform: scale(1.06);
   opacity: 0.88;
   transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1), opacity 700ms ease;
   will-change: transform, opacity;
 }
 
-/* Decorative Heading Accent Line: Expands horizontally from left */
-.reveal-line {
+html.motion-ready .reveal-line {
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1) 120ms;
@@ -123,7 +142,7 @@
   transform: scaleX(1) !important;
 }
 
-/* Stagger Animation Delays for Natural Flow */
+/* Stagger Animation Delays */
 .stagger-1 { transition-delay: 0ms !important; }
 .stagger-2 { transition-delay: 90ms !important; }
 .stagger-3 { transition-delay: 180ms !important; }
@@ -133,7 +152,6 @@
 /* ==========================================================================
    SPOTLIGHT / GLOW CARD COMPONENT STYLES
    Warm restaurant palette (Orange, Gold, Amber, Neutral)
-   Enhanced for both Desktop Pointer Hover & Mobile Ambient Glow
    ========================================================================== */
 
 .spotlight-card {
@@ -143,7 +161,7 @@
   background-color: #1f1f23;
   border: 1px solid rgba(168, 138, 131, 0.15);
   transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  touch-action: pan-y manipulation; /* Allows 100% natural mobile vertical scrolling without interception */
+  touch-action: pan-y manipulation;
 }
 
 /* Dynamic Pointer Spotlight Radial Glow Layer */
@@ -225,7 +243,7 @@
   --ambient-glow: rgba(255, 255, 255, 0.04);
 }
 
-/* Mobile & Touch Subtle Ambient Glow (Activates smoothly on scroll reveal) */
+/* Mobile & Touch Subtle Ambient Glow */
 @media (hover: none), (pointer: coarse) {
   .spotlight-card.is-revealed {
     border-color: var(--ambient-border, rgba(250, 188, 77, 0.22));
@@ -233,7 +251,6 @@
   }
 }
 
-/* Content sits comfortably above glow layer */
 .spotlight-card > * {
   position: relative;
   z-index: 3;
@@ -304,13 +321,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 /* Floating WhatsApp Entrance */
 #floating-whatsapp {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+html.motion-ready #floating-whatsapp {
   opacity: 0;
   transform: translateY(24px) scale(0.92);
   transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1), transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
-#floating-whatsapp.wa-revealed {
+html.motion-ready #floating-whatsapp.wa-revealed {
   opacity: 1 !important;
   transform: translateY(0) scale(1) !important;
 }

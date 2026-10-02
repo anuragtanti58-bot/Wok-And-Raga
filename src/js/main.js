@@ -6,6 +6,7 @@
  * dynamic business data binding, and high-performance Spotlight Card tracking.
  */
 
+import '../styles/main.css';
 import { restaurantConfig } from '../data/restaurantConfig.js';
 import { generateReservationWhatsAppUrl } from '../utils/whatsapp.js';
 
@@ -320,6 +321,9 @@ export function initSpotlightCards() {
 
 // Global initialization
 document.addEventListener('DOMContentLoaded', () => {
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('motion-ready');
+  }
   initConfigBindings();
   setupDatePicker();
   setupMobileMenu();
